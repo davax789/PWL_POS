@@ -33,8 +33,18 @@ class UserController extends Controller
 //         return view('view', ['data' => $user]);
 
 
-$user = UserModel::with('level')->get();
-return view ('user',['data'=>$user]);
+// $user = UserModel::with('level')->get();
+// return view ('user',['data'=>$user]);
+
+$breadcrump = (object)[
+    'title' => 'Daftar User' ,
+    'list' => ['Home','User']
+];
+    $page=(object)[
+        'title' => 'Daftar User yang terdaftar dalam sistem'
+    ];
+    $activeMenu = 'user';
+    return view('user.index',['breadcrump' =>$breadcrump , 'page' => $page, 'activeMenu' =>$activeMenu]);
     }
 
     
